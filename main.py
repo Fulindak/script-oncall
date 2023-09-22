@@ -1,5 +1,4 @@
 import logging
-
 import requests
 import yaml
 import time
@@ -118,10 +117,7 @@ for i in range(len(teams)):
     userinfo = teams[i]['users']
     for j in range(len(userinfo)):
         logging.info(f"Create User:{create_user(userinfo[j]['name'], token, config['oncall']['url'])}")
-        logging.info(add_info_user(userinfo[j]['phone_number'],
-                                   userinfo[j]['email'],
-                                   userinfo[j]['name'],
-                                   userinfo[j]['full_name'], token, config['oncall']['url']))
+        logging.info(f"Add User Info:{add_info_user(userinfo[j]['phone_number'], userinfo[j]['email'], userinfo[j]['name'], userinfo[j]['full_name'], token, config['oncall']['url'])}")
         logging.info(f"Add User In Roster:{add_user_roster(userinfo[j]['name'], teams[i]['name'], token, config['oncall']['url'])}")
         duty = teams[i]['users'][j]['duty']
         for k in range(len(duty)):
