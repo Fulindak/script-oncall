@@ -1,0 +1,49 @@
+2023-09-22 18:51:07,512 INFO {'name': 'k8s SRE', 'scheduling_timezone': 'Europe/Moscow', 'email': 'k8s@sre-course.ru', 'slack_channel': '#k8s-team'}
+2023-09-22 18:51:07,556 INFO Create Team:<Response [201]>
+2023-09-22 18:51:07,556 INFO {'name': 'roster-k8s SRE'}
+2023-09-22 18:51:07,569 INFO Create Roster In Team:<Response [201]>
+2023-09-22 18:51:07,569 INFO {'name': 'DBA SRE', 'scheduling_timezone': 'Asia/Novosibirsk', 'email': 'dba@sre-course.ru', 'slack_channel': '#dba-team'}
+2023-09-22 18:51:07,583 INFO Create Team:<Response [201]>
+2023-09-22 18:51:07,583 INFO {'name': 'roster-DBA SRE'}
+2023-09-22 18:51:07,595 INFO Create Roster In Team:<Response [201]>
+2023-09-22 18:51:07,595 INFO {'name': 'o.ivanov'}
+2023-09-22 18:51:07,601 INFO Create User:<Response [422]>
+2023-09-22 18:51:07,601 INFO {'contacts': {'call': '+1 111-111-1111', 'email': 'o.ivanov@sre-course.ru', 'sms': '+1 111-111-1111'}, 'name': 'o.ivanov', 'full_name': 'Oleg Ivanov'}
+2023-09-22 18:51:07,612 INFO <Response [204]>
+2023-09-22 18:51:07,629 INFO Add User In Roster:<Response [201]>
+2023-09-22 18:51:07,643 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,656 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,669 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,683 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,696 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,696 INFO {'name': 'd.petrov'}
+2023-09-22 18:51:07,703 INFO Create User:<Response [422]>
+2023-09-22 18:51:07,703 INFO {'contacts': {'call': '+1 211-111-1111', 'email': 'd.petrov@sre-course.ru', 'sms': '+1 211-111-1111'}, 'name': 'd.petrov', 'full_name': 'Dmitriy Petrov'}
+2023-09-22 18:51:07,713 INFO <Response [204]>
+2023-09-22 18:51:07,730 INFO Add User In Roster:<Response [201]>
+2023-09-22 18:51:07,743 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,757 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,769 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,783 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,795 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,795 INFO {'name': 'a.seledkov'}
+2023-09-22 18:51:07,802 INFO Create User:<Response [422]>
+2023-09-22 18:51:07,802 INFO {'contacts': {'call': '+1 311-111-1111', 'email': 'a.seledkov@sre-course.ru', 'sms': '+1 311-111-1111'}, 'name': 'a.seledkov', 'full_name': 'Alexander Seledkov'}
+2023-09-22 18:51:07,812 INFO <Response [204]>
+2023-09-22 18:51:07,831 INFO Add User In Roster:<Response [201]>
+2023-09-22 18:51:07,844 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,856 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,868 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,883 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,895 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,895 INFO {'name': 'd.hludeev'}
+2023-09-22 18:51:07,903 INFO Create User:<Response [422]>
+2023-09-22 18:51:07,903 INFO {'contacts': {'call': '+1 411-111-1111', 'email': 'user-4@sre-course.ru', 'sms': '+1 411-111-1111'}, 'name': 'd.hludeev', 'full_name': 'Dmitriy Hludeev'}
+2023-09-22 18:51:07,912 INFO <Response [204]>
+2023-09-22 18:51:07,930 INFO Add User In Roster:<Response [201]>
+2023-09-22 18:51:07,943 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,958 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,971 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,983 INFO Create event :<Response [201]>
+2023-09-22 18:51:07,995 INFO Create event :<Response [201]>
+2023-09-22 18:51:08,001 INFO LogOut:<Response [200]>

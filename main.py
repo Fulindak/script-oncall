@@ -1,3 +1,5 @@
+import logging
+
 import requests
 import yaml
 import time
@@ -22,7 +24,7 @@ def create_rosters(team, token, url):
     roster = {
         "name": f"roster-{team}"
     }
-    print(roster)
+    logging.info(roster)
     return requests.post(f"{url}/api/v0/teams/{team}/rosters",
                          json=roster,
                          cookies=token.cookies.get_dict(),
@@ -36,7 +38,7 @@ def create_team(name, scheduling_timezone, email, slack_channel, token, url):
         'email': email,
         'slack_channel': slack_channel
     }
-    print(team)
+    logging.info(team)
     return requests.post(f"{url}/api/v0/teams",
                          json=team,
                          cookies=token.cookies.get_dict(),
@@ -47,7 +49,7 @@ def create_user(user_name, token, url):
     user = {
         "name": user_name
     }
-    print(user)
+    logging.info(user)
     return requests.post(f"{url}/api/v0/users",
                          json=user,
                          cookies=token.cookies.get_dict(),
@@ -74,7 +76,7 @@ def add_info_user(call, email, name, full_name, token, url):
         "name": name,
         "full_name": full_name,
     }
-    print(info)
+    logging.info(info)
     return requests.put(f"{url}/api/v0/users/{name}",
                         json=info,
                         cookies=token.cookies.get_dict(),
@@ -98,35 +100,30 @@ def create_event(date, user, team, role, token, url):
         "team": team,
         "role": role,
     }
-    print(user, role)
     return requests.post(f"{url}/api/v0/events",
                          json=event,
                          cookies=token.cookies.get_dict(),
                          headers={'X-CSRF-TOKEN': token.json().get('csrf_token')})
 
 
+logging.basicConfig(level=logging.INFO, filename="py_log.log", filemode="w",
+                    format="%(asctime)s %(levelname)s %(message)s")
 config = read_yaml('config.yaml')
 teams = read_yaml(config['yaml']['file'])['teams']
 token = login(config['oncall']['url'], config['oncall']['user_name'], config['oncall']['password'])
 for i in range(len(teams)):
-    print(create_team(
-        teams[i]['name'],
-        teams[i]['scheduling_timezone'],
-        teams[i]['email'],
-        teams[i]['slack_channel'], token, config['oncall']['url']))
-    print(create_rosters(teams[i]['name'], token, config['oncall']['url']))
+    logging.info(f"Create Team:{create_team(teams[i]['name'],teams[i]['scheduling_timezone'],teams[i]['email'],teams[i]['slack_channel'], token, config['oncall']['url'])}")
+    logging.info(f"Create Roster In Team:{create_rosters(teams[i]['name'], token, config['oncall']['url'])}")
 for i in range(len(teams)):
     userinfo = teams[i]['users']
     for j in range(len(userinfo)):
-        print(create_user(userinfo[j]['name'], token, config['oncall']['url']))
-        print(add_info_user(userinfo[j]['phone_number'],
-                            userinfo[j]['email'],
-                            userinfo[j]['name'],
-                            userinfo[j]['full_name'], token, config['oncall']['url']))
-        print(add_user_roster(userinfo[j]['name'], teams[i]['name'], token, config['oncall']['url']))
+        logging.info(f"Create User:{create_user(userinfo[j]['name'], token, config['oncall']['url'])}")
+        logging.info(add_info_user(userinfo[j]['phone_number'],
+                                   userinfo[j]['email'],
+                                   userinfo[j]['name'],
+                                   userinfo[j]['full_name'], token, config['oncall']['url']))
+        logging.info(f"Add User In Roster:{add_user_roster(userinfo[j]['name'], teams[i]['name'], token, config['oncall']['url'])}")
         duty = teams[i]['users'][j]['duty']
         for k in range(len(duty)):
-            print(create_event(duty[k]['date'], userinfo[j]['name'], teams[i]['name'], duty[k]['role'], token,
-                               config['oncall']['url']))
-
-print(logout(token, config['oncall']['url']))
+            logging.info(f"Create event :{create_event(duty[k]['date'], userinfo[j]['name'], teams[i]['name'], duty[k]['role'], token, config['oncall']['url'])}")
+logging.info(f"LogOut:{logout(token, config['oncall']['url'])}")
