@@ -105,8 +105,8 @@ def create_event(date, user, team, role, token, url):
                          headers={'X-CSRF-TOKEN': token.json().get('csrf_token')})
 
 
-teams = read_yaml('teams.yaml')['teams']
 config = read_yaml('config.yaml')
+teams = read_yaml(config['yaml']['file'])['teams']
 token = login(config['oncall']['url'], config['oncall']['user_name'], config['oncall']['password'])
 for i in range(len(teams)):
     print(create_team(

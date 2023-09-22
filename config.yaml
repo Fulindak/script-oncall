@@ -1,4 +1,7 @@
-oncall :
-  url: "http://localhost:8080"
-  user_name: "root"
-  password: "1"
+oncall:
+  url: 'http://localhost:8080'
+  user_name: 'root'
+  password: '1'
+yaml:
+  file: 'teams.yaml'
+
