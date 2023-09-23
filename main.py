@@ -105,7 +105,7 @@ def create_event(date, user, team, role, token, url):
                          headers={'X-CSRF-TOKEN': token.json().get('csrf_token')})
 
 
-logging.basicConfig(level=logging.INFO, filename="py_log.log", filemode="w",
+logging.basicConfig(level=logging.INFO, filename="{py_log.log}", filemode="w",
                     format="%(asctime)s %(levelname)s %(message)s")
 config = read_yaml('config.yaml')
 teams = read_yaml(config['yaml']['file'])['teams']
